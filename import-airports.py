@@ -5,8 +5,8 @@ import psycopg2
 conn = psycopg2.connect(
     host="localhost",
     database="sailing",
-    user="postgres",
-    password="crusher2020"
+    user="__",
+    password="__"
 )
 cursor = conn.cursor()
 

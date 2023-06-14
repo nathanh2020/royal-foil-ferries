@@ -30,6 +30,7 @@ LEFT JOIN water_routes w2
 ON w1.start_iata = w2.destination_iata AND w1.destination_iata = w2.start_iata AND w1.row_number < w2.row_number
 LEFT JOIN airlines
 ON w1.airline = airlines.airline_iata
+-- filter out any one way flights and flights that we dont have airline info on
 WHERE w2.start_iata IS NULL AND airlines.airline_iata IS NOT NULL AND airlines.airline_icao IS NOT NULL
 ORDER BY w1.distance ASC
 LIMIT 900) --restriction based on my api query limits
